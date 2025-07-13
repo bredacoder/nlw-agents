@@ -43,5 +43,5 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "question": "Question 1"
+    "question": "What is React?"
 }

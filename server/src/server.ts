@@ -1,4 +1,5 @@
 import { fastifyCors } from '@fastify/cors';
+import fastifyMultipart from '@fastify/multipart';
 import { fastify } from 'fastify';
 import {
   serializerCompiler,
@@ -14,6 +15,8 @@ app.register(fastifyCors, {
   origin: 'http://localhost:5173',
 });
 
+app.register(fastifyMultipart);
+
 app.setSerializerCompiler(serializerCompiler);
 app.setValidatorCompiler(validatorCompiler);
 
@@ -25,5 +28,6 @@ app.register(routes.getRoomsRoute);
 app.register(routes.createRoomRoute);
 app.register(routes.getRoomQuestionsRoute);
 app.register(routes.createQuestionRoute);
+app.register(routes.uploadAudioRoute);
 
 app.listen({ port: env.PORT });
